@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCattegoriesTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateCattegoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cattegories', function (Blueprint $table) {
-            $table->BigIncrements('id_cattegory');
+        Schema::create('categories', function (Blueprint $table) {
+            $table->BigIncrements('id_category');
             $table->UnsignedBigInteger('id');
             $table->UnsignedBigInteger('id_course');
             $table->Enum('status', ['active','inactive']);
