@@ -29,7 +29,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/order-admin" class="nav-link">
+            <a href="/categories" class="nav-link">
             <i class="fas fa-columns"></i> 
                 <span>
                 List User & Course

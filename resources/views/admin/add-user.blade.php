@@ -34,6 +34,7 @@
                           <label>Role</label>
                           <select class="form-control selectric" name="role">
                             <option value="">--select role--</option>
+                            <option value="user">User</option>
                             <option value="teacher">Teacher</option>
                             <option value="admin">Admin</option>
                           </select>
