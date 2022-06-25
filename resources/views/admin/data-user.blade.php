@@ -22,7 +22,7 @@
               <div class="card-header-action ">
                 <div class="d-flex flex-row-reverse">
                   <div class="mx-2">
-                    <a href="/tambah_user" class="btn btn-success">Tambah User</a>
+                    <a href="add-user" class="btn btn-success">Add User</a>
                   </div>
                 </div>
               </div>

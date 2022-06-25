@@ -10,7 +10,7 @@
               <li class="menu-header">Dashboard</li>
               <li><a class="nav-link" href="/beranda"><i class="far fa-square"></i> <span>Beranda</span></a></li>
               <li class="menu-header">Starter</li>
-          </li>
+
           <!-- Left side menu ADMIN -->
           <li class="nav-item">
             <a href="/users" class="nav-link">
@@ -24,39 +24,19 @@
             <a href="/store-admin" class="nav-link">
             <i class="fas fa-home"></i>
                 <span>
-                Store
+                Courses
                 </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/food-admin" class="nav-link">
-            <i class="fas fa-utensils"></i>
-                <span>
-                Food
-               </span>
             </a>
           </li>
           <li class="nav-item">
             <a href="/order-admin" class="nav-link">
             <i class="fas fa-columns"></i> 
                 <span>
-                Order
+                List User & Course
                 </span>
             </a>
           </li>
-
-          <li class="nav-item">
-            <a href="/payment" class="nav-link">
-            <i class="fas fa-dollar-sign"></i> 
-                <span>
-                Payment
-                </span>
-            </a>
-          </li>
-        
-          </li>
-            
-
+          </ul>
         </aside>
         <!-- /.sidebar-menu -->
       </div>

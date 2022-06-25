@@ -40,7 +40,7 @@ class UserController extends Controller
     public function index()
     {
         $user = User::all();
-        return view('Admin.data-user');
+        return view('admin.data-user');
     }
 
     /**
@@ -50,9 +50,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        // $model= new User;
-
-        //return view ('Admin.tambah_users', compact('model'));
+        $user = new User;
+        return view ('admin.add-user', compact('user'));
     }
 
     /**
@@ -81,7 +80,7 @@ class UserController extends Controller
         $user->role = $req->$role;
         $user->save();
 
-        return Response()->json($user);
+        return redirect('data-user');
 
     }
 

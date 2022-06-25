@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
-
+Route::view('/add-user','Admin.add-user');
 Route::resource('users', UserController::class);
