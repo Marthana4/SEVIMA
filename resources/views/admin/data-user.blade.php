@@ -38,6 +38,7 @@
                     <th><center> Phone Number </center></th>
                     <th><center> Email </center></th>
                     <th ><center>Role</center></th> 
+                    <th ><center>Action</center></th> 
                   </tr>
                   @foreach($user as $key=>$value)
                   <tr>
@@ -47,6 +48,13 @@
                     <td>{{$value->phone_number}}</td>
                     <td>{{$value->email}}</td>
                     <td>{{$value->role}}</td>
+                    <td>
+                      <form action=" {{ route('delete-user', $value->id) }} " method="post">
+                      @csrf
+                      @method('delete')
+                      <button onclick="return confirm('Are you sure delete this data?')" class="btn btn-link text-danger text-gradient px-3 mb-0"><i class="far fa-trash-alt me-2"></i></button>
+                      </form>
+                    </td>
                   </tr>
                  @endforeach
                 </table>

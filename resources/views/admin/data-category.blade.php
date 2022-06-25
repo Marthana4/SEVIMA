@@ -40,15 +40,17 @@
                   </tr>
                   @foreach($category as $key=>$value)
                   <tr>
-                    <td>{{$key+1}}</td>
-                    <td>{{$value->name}}</td>
-                    <td>{{$value->course_title}}</td>
+                    <td><center>{{$key+1}}</center></td>
+                    <td><center>{{$value->name}}</center></td>
+                    <td><center>{{$value->course_title}}</center></td>
                     @if($value->status =='inactive')
-                        <td><div class="badge badge-dark">{{$value->status}}</div></td>
+                        <td><center><div class="badge badge-dark">{{$value->status}}</div></center></td>
                     @else
-                        <td><div class="badge badge-primary">{{$value->status}}</div></td>
+                        <td><center><div class="badge badge-primary">{{$value->status}}</div></center></td>
                     @endif</td>
                         <td>
+                        <center><a href="{{ route('show-category', $value->id_category) }}" class="btn btn-link text-dark px-3 mb-0"><i class="fas fa-eye text-primary me-2" aria-hidden="true"></i></a></center>
+                        </td>
                   </tr>
                  @endforeach
                 </table>

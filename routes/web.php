@@ -18,7 +18,6 @@ Route::get('/', function () {
 });
 Route::view('/beranda','admin.beranda');
 Route::resource('users', UserController::class);
-Route::get('/show-user/{id}', 'UserController@show')->name('show-user');
 Route::get('/add-user', 'UserController@create')->name('add-user');
 Route::post('/submit-user', 'UserController@store')->name('submit-user');
 Route::get('/edit-user', 'UserController@edit')->name('edit-user');

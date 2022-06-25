@@ -46,7 +46,14 @@
                     <td><img src  ="{{('images/'.$value->course_image )}}" width="200" height="150"></td>
                     <td>{{$value->subject}}</td>
                     <td>{{$value->course_video}}</td>
-                    <td> </td>
+                    <td>
+                        <a href="{{ route('edit-course', $value->id_course) }}" class="btn btn-link text-dark px-3 mb-0"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i></a>
+                        <form action=" {{ route('delete-course', $value->id_course) }} " method="post">
+                        @csrf
+                        @method('delete')
+                        <button onclick="return confirm('Are you sure delete this data?')" class="btn btn-link text-danger text-gradient px-3 mb-0"><i class="far fa-trash-alt me-2"></i></button>
+                        </form>
+                    </td>
                   </tr>
                  @endforeach
                 </table>
