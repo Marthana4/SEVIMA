@@ -27,14 +27,18 @@
                       </div>
 
                       <div class="row">
+                        <div class="form-group col-12">
                         <label>Course</label>
-                        <select class="form-control selectric" name="name">
+                        <select class="form-control selectric" name="course_title">
                           <option value="">--select Course--</option>
                           @foreach($courses as $course)
                           <option value="{{$course->id_course}}">{{$course->course_title}}</option>
                           @endforeach
                         </select>
+                        </div>
                       </div>
+
+                      <br><br>
 
                       <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-lg btn-block">

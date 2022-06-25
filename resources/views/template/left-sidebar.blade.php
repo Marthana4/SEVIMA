@@ -1,10 +1,10 @@
 <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-          <img src="{{asset('assets/img/logokf.png')}}" width="150px" >
+          <img src="{{asset('images/logo.png')}}" width="50px" >
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-          <img src="{{asset('assets/img/logokf2.png')}}" width="30px">
+          <img src="{{asset('images/logo.png')}}" width="40px">
           </div>
           <ul class="sidebar-menu">
               <li class="menu-header">Dashboard</li>

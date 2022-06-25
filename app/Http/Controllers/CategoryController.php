@@ -1,8 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Category;
+use App\Models\User;
+use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use DB;
 
 class CategoryController extends Controller
 {
@@ -13,7 +19,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = Category::all();
+        $category = DB::table('categories')
+                    ->leftJoin('users', 'categories.id', '=', 'users.id')
+                    ->leftJoin('courses', 'categories.id_course', '=', 'courses.id_course')
+                    ->select('*')
+                    ->get();
+
         return view('admin.data-category', compact('category'));
     }
 
@@ -25,7 +36,9 @@ class CategoryController extends Controller
     public function create()
     {
         $category = new Category;
-        return view ('admin.add-category', compact('category'));
+        $users= User::where('role','user')->get();
+        $courses= Course::get();
+        return view ('admin.add-category', compact('category','users','courses'));
     }
 
     /**
@@ -36,7 +49,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $model = new Category;
+        $model->id = $request->name;
+        $model->id_course = $request->course_title;
+        $model->save();
+
+        return redirect('categories');
+        // dd($model);
     }
 
     /**

@@ -99,7 +99,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::where('id', $id)->first();
+        return view('admin.edit-user', compact('user'));
     }
 
     /**
@@ -111,7 +112,21 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::where('id', $id)->first();
+        $user->name = $request->name;
+        $user->no_hp = $request->no_hp;
+        $user->gender = $request->gender;
+        $user->tanggal_lahir = $request->tanggal_lahir;
+        $user->level = $request->level;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+
+        if ($user) {
+            return redirect('users');
+        } else {
+            return redirect()->back()->with('message', 'Gagal membuat akun, masukkan data dengan lengkap!');
+        }
     }
 
     /**
@@ -122,6 +137,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $model = User::where('id', $id)->delete();
+        return redirect('users');
     }
 }

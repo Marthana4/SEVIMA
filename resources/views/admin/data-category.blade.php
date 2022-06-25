@@ -35,16 +35,20 @@
                     <th><center> No </center> </th>
                     <th><center> Name </center></th>
                     <th><center> Course </center></th>
-                    <th><center> Image </center></th>
-                    <th ><center>Action</center></th> 
+                    <th><center> Status </center></th>
+                    <th><center>Action</center></th> 
                   </tr>
                   @foreach($category as $key=>$value)
                   <tr>
                     <td>{{$key+1}}</td>
                     <td>{{$value->name}}</td>
                     <td>{{$value->course_title}}</td>
-                    <td><img src  ="{{asset('images/'.$value->image )}}" width="200" height="150" class="rounded-circle"></td>
-                    <td> </td>
+                    @if($value->status =='inactive')
+                        <td><div class="badge badge-dark">{{$value->status}}</div></td>
+                    @else
+                        <td><div class="badge badge-primary">{{$value->status}}</div></td>
+                    @endif</td>
+                        <td>
                   </tr>
                  @endforeach
                 </table>
