@@ -70,8 +70,14 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $model = Category::find($id);
-        return Response()->json($model);
+        $category = DB::table('categories')
+                    ->leftJoin('users', 'categories.id', '=', 'users.id')
+                    ->leftJoin('courses', 'categories.id_course', '=', 'courses.id_course')
+                    ->select('*')
+                    ->where('categories.id_category', '=', $id)
+                    ->first();
+        // dd($category);
+        return view ('admin.detail-category', compact('category'));
     }
 
     /**
@@ -93,8 +99,12 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+        $update=Category::find($id);
+        $update->status = $request->status;
+        $update->save();
+        
+        return redirect('categories');
     }
 
     /**
@@ -105,7 +115,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $model = Category::where('id_category', $id)->delete();
+        $category = Category::where('id_category', $id)->delete();
 
         return redirect('categories');
     }
