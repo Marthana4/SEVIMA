@@ -40,7 +40,7 @@ class UserController extends Controller
     public function index()
     {
         $user = User::all();
-        return Response()->json($user);
+        return view('Admin.data-user');
     }
 
     /**
@@ -61,7 +61,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
         $req->validate([
             'name' => 'required|string|max:255',
@@ -80,6 +80,8 @@ class UserController extends Controller
         $user->password = Hash::make($req->get('password'));
         $user->role = $req->$role;
         $user->save();
+
+        return Response()->json($user);
 
     }
 
