@@ -14,9 +14,10 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $course = Course::all();
+        $keyword = $request->keyword;
+        $course = Course::where('course_title','LIKE','%'.$keyword.'%')->get();
         return view('admin.data-course', compact('course'));
     }
 
@@ -63,7 +64,8 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        //
+        $model = Course::find($id);
+        return Response()->json($model);
     }
 
     /**
@@ -74,7 +76,8 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $model = Course::where('id_course', $id)->first();
+        return view('admin.edit-course', compact('model'));
     }
 
     /**
@@ -86,7 +89,11 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $update=Course::find($id);
+        $update->subject = $req->subject;
+        $update->save();
+        
+        return redirect('courses');
     }
 
     /**
@@ -97,6 +104,8 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $model = Course::where('id_course', $id)->delete();
+
+        return redirect('food-courses');
     }
 }

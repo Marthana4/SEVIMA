@@ -37,9 +37,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $user = User::all();
+        $keyword = $request->keyword;
+        $user = User::where('name','LIKE','%'.$keyword.'%')->get();
         return view('admin.data-user', compact('user'));
         // dd($user);
     }

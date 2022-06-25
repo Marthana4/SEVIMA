@@ -12,7 +12,7 @@
                   <div class="card-header"><h3>Add Course</h3></div>
 
                   <div class="card-body">
-                    <form method="POST" action="{{ route ('submit-course') }}">
+                    <form method="POST" action="{{ route ('submit-course') }}" enctype="multipart/form-data">
                       {{ csrf_field() }}
                       <div class="row">
                         <div class="form-group col-12">
