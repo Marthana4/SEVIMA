@@ -25,7 +25,7 @@
               </div>
                 <div class="row align-items-center">
                   <div class="col text-center">
-                  <img src  ="{{('../images/'.$category->course_image )}}" width="200" height="150">
+                  <img src  ="{{('../images/'.$category->course_image )}}" width="400">
                   </div>
                   <div class="col">
                     <div class="text-xs font-weight-bold text-uppercase">
