@@ -18,7 +18,7 @@ class CreateCoursesTable extends Migration
             $table->string('course_title');
             $table->string('course_image')->nullable();
             $table->string('subject');
-            $table->integer('course_video')->unsigned()->nullable();
+            $table->string('course_video')->nullable();
             $table->timestamps();
         });
     }

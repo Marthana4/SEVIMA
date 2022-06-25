@@ -63,26 +63,17 @@ class UserController extends Controller
      */
     public function store(Request $req)
     {
-        $req->validate([
-            'name' => 'required|string|max:255',
-            'address' => 'required|string',
-            'phone_number' => 'required|min:11',
-            'email' => 'required|string|max:255',
-            'password' => 'required|string|min:4',
-            'role' => 'required',
-        ]);
-
         $user = new User;
         $user->name = $req->name;
         $user->address = $req->address;
         $user->phone_number = $req->phone_number;
         $user->email = $req->email;
         $user->password = Hash::make($req->get('password'));
-        $user->role = $req->$role;
+        $user->role = $req->role;
         $user->save();
         
         if ($user) {
-            return redirect('/data-user');
+            return redirect('users');
         } else {
             return redirect()->back()->with('message', 'Gagal membuat akun, masukkan data dengan lengkap!');
         }

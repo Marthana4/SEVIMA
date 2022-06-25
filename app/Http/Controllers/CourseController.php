@@ -37,9 +37,22 @@ class CourseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        // $resorce       = $req->file('image');
+        
+        // $namefile =  $resorce->getClientOriginalName();
+            
+        $model = new Course;
+        $model->course_title = $req->course_title;
+        // $model->course_image = $namefile;
+        $model->subject = $req->subject;
+        $model->course_video = $req->course_video;
+        $model->save();
+        // $resorce->move(\base_path() ."/public/images", $namefile);
+
+        return redirect('courses');
+        // dd($req->all());
     }
 
     /**

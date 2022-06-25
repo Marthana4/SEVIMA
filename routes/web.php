@@ -23,3 +23,4 @@ Route::post('/submit-user', 'UserController@store')->name('submit-user');
 Route::resource('users', UserController::class);
 Route::resource('courses', CourseController::class);
 Route::get('/add-course', 'CourseController@create')->name('add-course');
+Route::post('/submit-course', 'CourseController@store')->name('submit-course');

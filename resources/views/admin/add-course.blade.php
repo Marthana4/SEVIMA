@@ -12,7 +12,7 @@
                   <div class="card-header"><h3>Add Course</h3></div>
 
                   <div class="card-body">
-                    <form method="POST" action="{{ route ('submit-user') }}">
+                    <form method="POST" action="{{ route ('submit-course') }}">
                       {{ csrf_field() }}
                       <div class="row">
                         <div class="form-group col-12">
@@ -23,7 +23,7 @@
 
                       <div class="row">
                         <div class="form-group col-12">
-                          <label for="image">Upload Gambar</label>
+                          <label for="image">Upload Image</label>
                           <input type="file" class="form-control" name="image"
                             onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                             <img id="blah" alt="" width="200" height="150" />
