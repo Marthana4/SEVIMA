@@ -27,7 +27,8 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        $course = new Course;
+        return view ('admin.add-course', compact('course'));
     }
 
     /**

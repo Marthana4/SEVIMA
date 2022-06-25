@@ -21,7 +21,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/store-admin" class="nav-link">
+            <a href="/courses" class="nav-link">
             <i class="fas fa-home"></i>
                 <span>
                 Courses

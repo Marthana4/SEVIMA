@@ -43,7 +43,7 @@
                   <tr>
                     <td>{{$key+1}}</td>
                     <td>{{$value->course_title}}</td>
-                    <td>{{$value->course_image}}</td>
+                    <td><img src  ="{{asset('images/'.$value->image )}}" width="200" height="150"></td>
                     <td>{{$value->subject}}</td>
                     <td>{{$value->course_video}}</td>
                     <td> </td>
