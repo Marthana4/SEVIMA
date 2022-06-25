@@ -106,6 +106,6 @@ class CourseController extends Controller
     {
         $model = Course::where('id_course', $id)->delete();
 
-        return redirect('food-courses');
+        return redirect('courses');
     }
 }

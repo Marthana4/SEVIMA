@@ -17,12 +17,16 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $keyword = $request->keyword;
         $category = DB::table('categories')
                     ->leftJoin('users', 'categories.id', '=', 'users.id')
                     ->leftJoin('courses', 'categories.id_course', '=', 'courses.id_course')
                     ->select('*')
+                    ->where('name','LIKE','%'.$keyword.'%')
+                    ->where('course_title','LIKE','%'.$keyword.'%')
+                    ->where('status','LIKE','%'.$keyword.'%')
                     ->get();
 
         return view('admin.data-category', compact('category'));
@@ -66,7 +70,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $model = Category::find($id);
+        return Response()->json($model);
     }
 
     /**
@@ -100,6 +105,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $model = Category::where('id_category', $id)->delete();
+
+        return redirect('categories');
     }
 }
