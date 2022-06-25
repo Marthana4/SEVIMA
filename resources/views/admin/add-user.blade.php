@@ -12,27 +12,27 @@
                   <div class="card-header"><h3>Add User</h3></div>
 
                   <div class="card-body">
-                    <form method="POST" action="{{ url('users') }}">
-                      @csrf
+                    <form method="POST" action="{{ route ('submit-user') }}">
+                      {{ csrf_field() }}
                       <div class="row">
                         <div class="form-group col-6">
                           <label for="name">Name</label>
                           <input type="text" class="form-control" name="name" autofocus>
                         </div>
                         <div class="form-group col-6">
-                          <label for="no_hp">Phone Number</label>
-                          <input type="text" class="form-control" name="no_hp">
+                          <label for="phone_number">Phone Number</label>
+                          <input type="text" class="form-control" name="phone_number">
                         </div>
                       </div>
 
                       <div class="row">
                         <div class="form-group col-6">
-                          <label for="no_hp">Address</label>
-                          <input type="text" class="form-control" name="no_hp">
+                          <label for="address">Address</label>
+                          <input type="text" class="form-control" name="address">
                         </div>
                         <div class="form-group col-6">
                           <label>Role</label>
-                          <select class="form-control selectric" name="level">
+                          <select class="form-control selectric" name="role">
                             <option value="">--select role--</option>
                             <option value="teacher">Teacher</option>
                             <option value="admin">Admin</option>

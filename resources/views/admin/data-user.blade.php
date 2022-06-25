@@ -22,7 +22,7 @@
               <div class="card-header-action ">
                 <div class="d-flex flex-row-reverse">
                   <div class="mx-2">
-                    <a href="add-user" class="btn btn-success">Add User</a>
+                    <a href="{{route ('add-user') }}" class="btn btn-success">Add User</a>
                   </div>
                 </div>
               </div>
@@ -37,8 +37,18 @@
                     <th><center> Addres </center></th>
                     <th><center> Phone Number </center></th>
                     <th><center> Email </center></th>
-                    <th colspan="2"><center>Action</center></th> 
+                    <th ><center>Role</center></th> 
                   </tr>
+                  @foreach($user as $key=>$value)
+                  <tr>
+                    <td>{{$key+1}}</td>
+                    <td>{{$value->name}}</td>
+                    <td>{{$value->address}}</td>
+                    <td>{{$value->phone_number}}</td>
+                    <td>{{$value->email}}</td>
+                    <td>{{$value->role}}</td>
+                  </tr>
+                 @endforeach
                 </table>
               </div>
             </div>

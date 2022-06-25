@@ -16,5 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
-Route::view('/add-user','Admin.add-user');
+Route::view('/beranda','admin.beranda');
+// Route::get('/users', 'UserController@index')->name('users');
+Route::get('/add-user', 'UserController@create')->name('add-user');
+Route::post('/submit-user', 'UserController@store')->name('submit-user');
 Route::resource('users', UserController::class);

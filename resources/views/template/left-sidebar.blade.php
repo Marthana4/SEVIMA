@@ -8,7 +8,7 @@
           </div>
           <ul class="sidebar-menu">
               <li class="menu-header">Dashboard</li>
-              <li><a class="nav-link" href="/beranda"><i class="far fa-square"></i> <span>Beranda</span></a></li>
+              <li><a class="nav-link" href="/beranda"><i class="far fa-square"></i> <span>Dashboard</span></a></li>
               <li class="menu-header">Starter</li>
 
           <!-- Left side menu ADMIN -->

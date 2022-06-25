@@ -40,7 +40,8 @@ class UserController extends Controller
     public function index()
     {
         $user = User::all();
-        return view('admin.data-user');
+        return view('admin.data-user', compact('user'));
+        // dd($user);
     }
 
     /**
@@ -79,8 +80,12 @@ class UserController extends Controller
         $user->password = Hash::make($req->get('password'));
         $user->role = $req->$role;
         $user->save();
-
-        return redirect('data-user');
+        
+        if ($user) {
+            return redirect('/data-user');
+        } else {
+            return redirect()->back()->with('message', 'Gagal membuat akun, masukkan data dengan lengkap!');
+        }
 
     }
 
