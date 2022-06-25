@@ -90,7 +90,7 @@ class CourseController extends Controller
     public function update(Request $request, $id)
     {
         $update=Course::find($id);
-        $update->subject = $req->subject;
+        $update->subject = $request->subject;
         $update->save();
         
         return redirect('courses');
