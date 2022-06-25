@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class CourseController extends Controller
 {
@@ -13,7 +16,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $course = Course::all();
+        return view('admin.data-course', compact('course'));
     }
 
     /**
