@@ -3,9 +3,35 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+    public function register(Request $req)
+    {
+        $req->validate([
+            'name' => 'required|string|max:255',
+            'address' => 'required|string',
+            'phone_number' => 'required|min:11',
+            'email' => 'required|string|max:255',
+            'password' => 'required|string|min:4',
+            'role' => 'required',
+        ]);
+
+        $user = new User;
+        $user->name = $req->name;
+        $user->address = $req->address;
+        $user->phone_number = $req->phone_number;
+        $user->email = $req->email;
+        $user->password = Hash::make($req->get('password'));
+        $user->role = 'user';
+        $user->save();
+
+        return response()->json(['data'=>$user]);
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +39,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::all();
+        return Response()->json($user);
     }
 
     /**
@@ -23,7 +50,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        // $model= new User;
+
+        //return view ('Admin.tambah_users', compact('model'));
     }
 
     /**
@@ -34,7 +63,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $req->validate([
+            'name' => 'required|string|max:255',
+            'address' => 'required|string',
+            'phone_number' => 'required|min:11',
+            'email' => 'required|string|max:255',
+            'password' => 'required|string|min:4',
+            'role' => 'required',
+        ]);
+
+        $user = new User;
+        $user->name = $req->name;
+        $user->address = $req->address;
+        $user->phone_number = $req->phone_number;
+        $user->email = $req->email;
+        $user->password = Hash::make($req->get('password'));
+        $user->role = $req->$role;
+        $user->save();
+
     }
 
     /**
